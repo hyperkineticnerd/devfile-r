@@ -28,3 +28,9 @@ components:
       args: ['tail', '-f', '/dev/null']
       memoryLimit: 2048Mi
       mountSources: true
+starterProjects:
+  - name: r-starter
+    description: qrcode project.
+    git:
+      remotes:
+        origin: https://github.com/ThierryO/qrcode
