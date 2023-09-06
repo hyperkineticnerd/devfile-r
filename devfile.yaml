@@ -1,0 +1,30 @@
+schemaVersion: 2.2.0
+metadata:
+  name: R
+  version: 0.0.1
+  description: A web service template.
+  projectType: R
+  language: R
+  provider: CCRN
+  tags: [ 'R', 'ccrn', 'pq' ]
+  architectures: [ 'amd64' ]
+  displayName: R Computational
+  icon: https://ccrn/devfile-stack-icons/main/r.svg
+attributes:
+  .vscode/extensions.json: |
+    {
+      "recommendations": [
+        "REditorSupport.r",
+        "RDebugger.r-debugger"
+      ]
+    }
+  .che/che-theia-plugins.yaml: |
+    - id: REditorSupport/r/latest
+    - id: RDebugger/r-debugger/latest
+components:
+  - name: runtime
+    container:
+      image: quay.io/hyperkineticnerd/devfile-r:latest
+      args: ['tail', '-f', '/dev/null']
+      memoryLimit: 2048Mi
+      mountSources: true
